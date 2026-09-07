@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 
 const Contact = () => {
-  const { isEnglish } = useTranslation('common');
+  const { t, isEnglish } = useTranslation('common');
+  const copy = t('contact', { returnObjects: true });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (event) => {
@@ -15,12 +16,10 @@ const Contact = () => {
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="section-title">
-            {isEnglish ? 'Contact Us' : 'İletişim'}
+            {copy.title}
           </h1>
           <p className="section-subtitle">
-            {isEnglish 
-              ? 'Get in touch for a free consultation' 
-              : 'Ücretsiz keşif için bizimle iletişime geçin'}
+            {copy.subtitle}
           </p>
         </div>
 
@@ -28,24 +27,24 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="bg-surface dark:bg-surface-dark p-8 rounded-2xl shadow-soft border border-border dark:border-dark-border">
             <h2 className="text-2xl font-bold text-text dark:text-text-dark mb-6">
-              {isEnglish ? 'Send a Message' : 'Mesaj Gönder'}
+              {copy.formTitle}
             </h2>
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-text dark:text-text-dark mb-1">
-                    {isEnglish ? 'Full Name' : 'Ad Soyad'}
+                    {copy.name}
                   </label>
                   <input
                     type="text"
                     required
                     className="w-full px-4 py-3 rounded-lg border border-border dark:border-dark-border bg-background dark:bg-background-dark text-text dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder={isEnglish ? 'Your full name' : 'Adınız Soyadınız'}
+                    placeholder={copy.name}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-text dark:text-text-dark mb-1">
-                    {isEnglish ? 'Email' : 'E-posta'}
+                    {copy.email}
                   </label>
                   <input
                     type="email"
@@ -56,7 +55,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-text dark:text-text-dark mb-1">
-                    {isEnglish ? 'Phone' : 'Telefon'}
+                    {copy.phone}
                   </label>
                   <input
                     type="tel"
@@ -67,7 +66,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-text dark:text-text-dark mb-1">
-                    {isEnglish ? 'Message' : 'Mesaj'}
+                    {copy.message}
                   </label>
                   <textarea
                     required
@@ -77,11 +76,11 @@ const Contact = () => {
                   />
                 </div>
                 <button type="submit" className="btn-primary w-full">
-                  {isEnglish ? 'Send Message' : 'Mesaj Gönder'}
+                  {copy.submit}
                 </button>
                 {submitted && (
                   <p className="text-sm text-success text-center" role="status">
-                    {isEnglish ? 'Thank you. We will get back to you shortly.' : 'Teşekkürler. En kısa sürede size dönüş yapacağız.'}
+                    {copy.success}
                   </p>
                 )}
               </div>

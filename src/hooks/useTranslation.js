@@ -1,7 +1,8 @@
 import { useTranslation as useI18nTranslation } from 'react-i18next';
 
 export const useTranslation = (namespace = 'common') => {
-  const { t, i18n } = useI18nTranslation(namespace);
+  // Locale content is intentionally kept in one object per language.
+  const { t, i18n } = useI18nTranslation();
   
   return {
     t,

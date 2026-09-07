@@ -26,7 +26,7 @@ export const ThemeProvider = ({ children }) => {
   }, [theme, mounted]);
 
   const toggleTheme = () => {
-    setTheme((currentTheme) => currentTheme === 'light' ? 'dark' : currentTheme === 'dark' ? 'system' : 'light');
+    setTheme((currentTheme) => currentTheme === 'dark' ? 'light' : 'dark');
   };
 
   if (!mounted) {

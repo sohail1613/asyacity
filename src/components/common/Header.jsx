@@ -20,11 +20,12 @@ const Header = () => {
 
   const navItems = [
     { path: '/', label: t('header.home') },
-    { path: '/services', label: t('header.services') },
-    { path: '/why-professional', label: t('header.whyProfessional') },
-    { path: '/how-it-works', label: t('header.howItWorks') },
-    { path: '/pricing', label: t('header.pricing') },
-    { path: '/about', label: t('header.about') },
+    { path: '/about', label: t('header.corporate'), children: [{ path: '/about', label: t('header.about') }, { path: '/why-professional', label: t('header.whyProfessional') }] },
+    { path: '/services', label: t('header.services'), children: [
+      ['consulting', t('servicePages.consulting.title')], ['security', t('servicePages.security.title')], ['legal', t('servicePages.legal.title')], ['staff', t('servicePages.staff.title')], ['accounting', t('servicePages.accounting.title')], ['technical', t('servicePages.technical.title')], ['cleaning', t('servicePages.cleaning.title')], ['pool', t('servicePages.pool.title')], ['landscape', t('servicePages.landscape.title')]
+    ].map(([slug, label]) => ({ path: `/services/${slug}`, label })) },
+    { path: '/how-it-works', label: t('header.management'), children: [{ path: '/how-it-works', label: t('header.howItWorks') }, { path: '/pricing', label: t('header.pricing') }] },
+    { path: '/applications', label: t('header.application'), children: [{ path: '/site-teklif-formu', label: t('applications.site.title') }, { path: '/insan-kaynaklari-basvuru-formu', label: t('applications.career.title') }] },
     { path: '/blog', label: t('header.blog') },
     { path: '/contact', label: t('header.contact') },
   ];
@@ -64,17 +65,12 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
-                  isActive(item.path)
-                    ? 'text-primary dark:text-primary-light bg-primary/5 dark:bg-primary/10'
-                    : 'text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800'
-                }`}
-              >
-                {item.label}
-              </Link>
+              <div key={item.path} className="relative group">
+                <Link to={item.path} className={`px-3 py-2 text-sm font-medium rounded-lg transition-all inline-flex items-center ${isActive(item.path) ? 'text-primary dark:text-primary-light bg-primary/5 dark:bg-primary/10' : 'text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800'}`}>
+                  {item.label}{item.children && <span className="ml-2 text-xs">⌄</span>}
+                </Link>
+                {item.children && <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all absolute left-0 top-full mt-2 w-72 bg-white dark:bg-dark-surface rounded-xl shadow-hard border border-border dark:border-dark-border p-2 z-50">{item.children.map((child) => <Link key={child.path} to={child.path} className="block rounded-lg px-4 py-3 text-sm hover:bg-primary/5 dark:hover:bg-primary/10">{child.label}</Link>)}</div>}
+              </div>
             ))}
           </nav>
 
@@ -83,10 +79,7 @@ const Header = () => {
             <LanguageSwitcher />
             <ThemeToggle />
             
-            <Link
-              to="/contact"
-              className="hidden md:inline-flex btn-primary text-sm px-5 py-2.5"
-            >
+            <Link to="/contact" className="hidden md:inline-flex btn-primary text-sm px-5 py-2.5">
               {t('header.getQuote')}
             </Link>
 
@@ -124,6 +117,12 @@ const Header = () => {
                 >
                   {item.label}
                 </Link>
+              ))}
+              {navItems.filter((item) => item.children).map((item) => (
+                <div key={`${item.path}-mobile`} className="border-t border-border dark:border-dark-border pt-3 mt-2">
+                  <div className="px-4 py-2 text-sm font-semibold text-text-light dark:text-text-dark-light">{item.label}</div>
+                  {item.children.map((child) => <Link key={child.path} to={child.path} className="block px-4 py-2 rounded-lg" onClick={() => setIsMenuOpen(false)}>{child.label}</Link>)}
+                </div>
               ))}
               <div className="pt-4 mt-4 border-t border-border dark:border-dark-border">
                 <Link

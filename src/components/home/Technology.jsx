@@ -2,66 +2,43 @@ import React from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 
 const Technology = () => {
-  const { isEnglish } = useTranslation('home');
+  const { t } = useTranslation('home');
 
-  const features = [
-    {
-      title: isEnglish ? 'Mobile App' : 'Mobil Uygulama',
-      description: isEnglish 
-        ? 'Access your site information anytime, anywhere' 
-        : 'Site bilgilerinize her zaman, her yerde erişin',
-      icon: (
+  const features = t('technology.features', { returnObjects: true }).map((feature, index) => ({
+    ...feature,
+    icon: [
+    (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
-      )
-    },
-    {
-      title: isEnglish ? 'Online Payments' : 'Online Ödeme',
-      description: isEnglish 
-        ? 'Pay your dues securely with credit card' 
-        : 'Kredi kartı ile güvenli aidat ödemesi',
-      icon: (
+      ),
+    (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
         </svg>
-      )
-    },
-    {
-      title: isEnglish ? 'Dashboard' : 'Yönetim Paneli',
-      description: isEnglish 
-        ? 'Real-time financial and operational overview' 
-        : 'Gerçek zamanlı finansal ve operasyonel görünüm',
-      icon: (
+      ),
+    (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
         </svg>
-      )
-    },
-    {
-      title: isEnglish ? 'Ticket System' : 'Talep Takip',
-      description: isEnglish 
-        ? 'Submit and track maintenance requests easily' 
-        : 'Bakım taleplerini kolayca iletin ve takip edin',
-      icon: (
+      ),
+    (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
         </svg>
       )
-    }
-  ];
+    ][index]
+  }));
 
   return (
     <section className="py-20 bg-white dark:bg-background-dark">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-title">
-            {isEnglish ? 'Technology & Digital Solutions' : 'Teknoloji & Dijital Çözümler'}
+            {t('technology.title')}
           </h2>
           <p className="section-subtitle">
-            {isEnglish 
-              ? 'Modern technology for modern site management' 
-              : 'Modern site yönetimi için modern teknoloji'}
+            {t('technology.subtitle')}
           </p>
         </div>
 

@@ -2,20 +2,12 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import trCommon from './translations/tr/common.json';
-import trHome from './translations/tr/home.json';
-import enCommon from './translations/en/common.json';
-import enHome from './translations/en/home.json';
+import tr from './translations/tr';
+import en from './translations/en';
 
 const resources = {
-  tr: {
-    common: trCommon,
-    home: trHome,
-  },
-  en: {
-    common: enCommon,
-    home: enHome,
-  },
+  tr: { translation: tr },
+  en: { translation: en },
 };
 
 i18n
@@ -24,6 +16,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'tr',
+    defaultNS: 'translation',
     debug: process.env.NODE_ENV === 'development',
     interpolation: {
       escapeValue: false,

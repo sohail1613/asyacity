@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
 
 const Hero = () => {
-  const { t, isEnglish } = useTranslation('home');
+  const { t } = useTranslation('home');
 
   return (
     <section className="relative min-h-[720px] flex items-center overflow-hidden bg-[#19382e]">
@@ -24,7 +24,7 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 text-[#d8f05c] eyebrow mb-7">
             <span className="w-2 h-2 bg-[#d8f05c] rounded-full animate-pulse" />
-            <span>{isEnglish ? 'Professional Property Management' : 'Profesyonel Site Yönetimi'}</span>
+            <span>{t('hero.eyebrow')}</span>
           </div>
 
           {/* Heading */}
@@ -51,19 +51,19 @@ const Hero = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-8 border-t border-white/20">
             <div>
               <div className="text-3xl font-bold text-white">150+</div>
-              <div className="text-sm text-white/70">{isEnglish ? 'Happy Sites' : 'Mutlu Site'}</div>
+              <div className="text-sm text-white/70">{t('hero.stats.sites')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">20+</div>
-              <div className="text-sm text-white/70">{isEnglish ? 'Years Experience' : 'Yıl Deneyim'}</div>
+              <div className="text-sm text-white/70">{t('hero.stats.experience')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">98%</div>
-              <div className="text-sm text-white/70">{isEnglish ? 'Satisfaction Rate' : 'Memnuniyet Oranı'}</div>
+              <div className="text-sm text-white/70">{t('hero.stats.satisfaction')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">24/7</div>
-              <div className="text-sm text-white/70">{isEnglish ? 'Technical Support' : 'Teknik Destek'}</div>
+              <div className="text-sm text-white/70">{t('hero.stats.support')}</div>
             </div>
           </div>
         </div>

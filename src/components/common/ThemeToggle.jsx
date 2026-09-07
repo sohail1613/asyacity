@@ -8,8 +8,8 @@ const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-      aria-label={theme === 'dark' ? 'Aydınlık moda geç' : theme === 'light' ? 'Sistem temasını kullan' : 'Karanlık moda geç'}
-      title={theme === 'system' ? 'System theme' : theme}
+      aria-label={theme === 'dark' ? 'Aydınlık moda geç' : 'Karanlık moda geç'}
+      title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
     >
       {theme === 'dark' ? (
         <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
