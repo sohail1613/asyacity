@@ -1,0 +1,43 @@
+{
+  "header": {
+    "home": "Home",
+    "services": "Services",
+    "whyProfessional": "Why Professional?",
+    "howItWorks": "How It Works",
+    "pricing": "Pricing",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "contactButton": "Contact",
+    "getQuote": "Get a Quote"
+  },
+  "footer": {
+    "company": "Asya City Professional Site Management",
+    "tagline": "Peace, Transparency and Legal Security in Your Living Space",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contactInfo": "Contact Information",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "workingHours": "Working Hours",
+    "monFri": "Mon-Fri: 09:00 - 18:00",
+    "sat": "Sat: 10:00 - 14:00",
+    "sun": "Sun: Closed",
+    "allRights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "forms": {
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Send",
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "success": "Your message has been sent successfully.",
+    "error": "An error occurred. Please try again."
+  }
+}

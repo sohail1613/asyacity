@@ -1,0 +1,43 @@
+{
+  "header": {
+    "home": "Ana Sayfa",
+    "services": "Hizmetler",
+    "whyProfessional": "Neden Profesyonel?",
+    "howItWorks": "Nasıl Çalışır?",
+    "pricing": "Fiyatlandırma",
+    "about": "Hakkımızda",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "contactButton": "İletişim",
+    "getQuote": "Teklif Al"
+  },
+  "footer": {
+    "company": "Asya City Profesyonel Site Yönetimi",
+    "tagline": "Yaşam Alanlarınızda Huzur, Şeffaflık ve Yasal Güvence",
+    "quickLinks": "Hızlı Bağlantılar",
+    "services": "Hizmetlerimiz",
+    "contactInfo": "İletişim Bilgileri",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "address": "Adres",
+    "workingHours": "Çalışma Saatleri",
+    "monFri": "Pzt-Cum: 09:00 - 18:00",
+    "sat": "Cmt: 10:00 - 14:00",
+    "sun": "Paz: Kapalı",
+    "allRights": "Tüm hakları saklıdır.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları"
+  },
+  "forms": {
+    "fullName": "Ad Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "subject": "Konu",
+    "message": "Mesaj",
+    "submit": "Gönder",
+    "required": "Bu alan zorunludur",
+    "invalidEmail": "Geçerli bir e-posta adresi girin",
+    "success": "Mesajınız başarıyla gönderildi.",
+    "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+  }
+}
