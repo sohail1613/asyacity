@@ -1,6 +1,17 @@
 const tr = {
   header: {
-    home: 'Ana Sayfa', services: 'Hizmetlerimiz', whyProfessional: 'Neden Profesyonel?', howItWorks: 'Nasıl Çalışır?', pricing: 'Fiyatlandırma', about: 'Hakkımızda', corporate: 'Kurumsal', management: 'Site Yönetimi', blog: 'Blog', contact: 'İletişim', application: 'Başvuru', contactButton: 'İletişim', getQuote: 'Teklif Al'
+    home: 'Ana Sayfa', services: 'Hizmetlerimiz', whyProfessional: 'Neden Profesyonel?', howItWorks: 'Nasıl Çalışır?', pricing: 'Fiyatlandırma', about: 'Hakkımızda', corporate: 'Kurumsal', management: 'Site Yönetimi', blog: 'Blog', references: 'Referanslar', contact: 'İletişim', application: 'Başvuru', contactButton: 'İletişim', getQuote: 'Teklif Al'
+  },
+  references: {
+    eyebrow: 'REFERANSLARIMIZ',
+    title: 'Güvenle hizmet verdiğimiz projeler',
+    subtitle: 'Asya City olarak site, apartman ve toplu yaşam alanlarında düzenli, şeffaf ve sürdürülebilir yönetim anlayışıyla hizmet sunuyoruz.',
+    searchPlaceholder: 'Proje veya ilçe ara...',
+    allCategories: 'Tümü',
+    sites: 'Siteler & Konutlar',
+    apartments: 'Apartmanlar',
+    villas: 'Villalar',
+    noResults: 'Aradığınız kriterlere uygun referans bulunamadı.'
   },
   footer: {
     company: 'Asya City Profesyonel Site Yönetimi', tagline: 'Yaşam alanlarınızda huzur, şeffaflık ve güven.', quickLinks: 'Hızlı Bağlantılar', services: 'Hizmetlerimiz', contactInfo: 'İletişim Bilgileri', phone: 'Telefon', email: 'E-posta', address: 'Adres', workingHours: 'Çalışma Saatleri', monFri: 'Pzt-Cum: 09:00 - 18:00', sat: 'Cmt: 10:00 - 14:00', sun: 'Paz: Kapalı', allRights: 'Tüm hakları saklıdır.', privacy: 'Gizlilik Politikası', terms: 'Kullanım Şartları'

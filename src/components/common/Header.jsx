@@ -26,7 +26,7 @@ const Header = () => {
     ].map(([slug, label]) => ({ path: `/services/${slug}`, label })) },
     { path: '/how-it-works', label: t('header.management'), children: [{ path: '/how-it-works', label: t('header.howItWorks') }, { path: '/pricing', label: t('header.pricing') }] },
     { path: '/applications', label: t('header.application'), children: [{ path: '/site-teklif-formu', label: t('applications.site.title') }, { path: '/insan-kaynaklari-basvuru-formu', label: t('applications.career.title') }] },
-    { path: '/blog', label: t('header.blog') },
+    { path: '/referanslar', label: t('header.references') },
     { path: '/contact', label: t('header.contact') },
   ];
 

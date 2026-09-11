@@ -1,6 +1,17 @@
 const en = {
   header: {
-    home: 'Home', services: 'Services', whyProfessional: 'Why Professional?', howItWorks: 'How It Works', pricing: 'Pricing', about: 'About', corporate: 'Corporate', management: 'Site Management', blog: 'Blog', contact: 'Contact', application: 'Apply', contactButton: 'Contact', getQuote: 'Get a Quote'
+    home: 'Home', services: 'Services', whyProfessional: 'Why Professional?', howItWorks: 'How It Works', pricing: 'Pricing', about: 'About', corporate: 'Corporate', management: 'Site Management', blog: 'Blog', references: 'References', contact: 'Contact', application: 'Apply', contactButton: 'Contact', getQuote: 'Get a Quote'
+  },
+  references: {
+    eyebrow: 'OUR REFERENCES',
+    title: 'Projects We Proudly Serve',
+    subtitle: 'As Asya City, we provide management services for sites, apartments, and collective living spaces with a transparent and sustainable approach.',
+    searchPlaceholder: 'Search project or location...',
+    allCategories: 'All',
+    sites: 'Sites & Residences',
+    apartments: 'Apartments',
+    villas: 'Villas',
+    noResults: 'No references found matching your search criteria.'
   },
   footer: {
     company: 'Asya City Professional Site Management', tagline: 'Peace, transparency and confidence in your living space.', quickLinks: 'Quick Links', services: 'Our Services', contactInfo: 'Contact Information', phone: 'Phone', email: 'Email', address: 'Address', workingHours: 'Working Hours', monFri: 'Mon-Fri: 09:00 - 18:00', sat: 'Sat: 10:00 - 14:00', sun: 'Sun: Closed', allRights: 'All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms of Service'

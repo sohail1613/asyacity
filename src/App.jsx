@@ -10,6 +10,7 @@ import WhyProfessional from './pages/WhyProfessional';
 import HowItWorks from './pages/HowItWorks';
 import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
+import References from './pages/References';
 import Applications from './pages/Applications';
 import ServiceDetail from './pages/ServiceDetail';
 
@@ -27,6 +28,8 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/referanslar" element={<References />} />
+          <Route path="/references" element={<References />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/applications" element={<Applications />} />
           <Route path="/site-teklif-formu" element={<Applications initialType="site" />} />
