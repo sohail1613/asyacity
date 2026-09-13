@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
+import { FormInput, FormSelect, FormSubmit, FormTextarea } from '../components/common/FormControls';
+import { SITE_CONFIG } from '../config/site';
+import { submitForm } from '../utils/submitForm';
 
 const Applications = ({ initialType }) => {
   const { t } = useTranslation('common');
@@ -12,6 +15,8 @@ const Applications = ({ initialType }) => {
       : initialType || 'site'
   );
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const copy = t(`applications.${type}`, { returnObjects: true });
 
   useEffect(() => {
@@ -26,23 +31,27 @@ const Applications = ({ initialType }) => {
     setSearchParams({ type: nextType });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(false);
+
+    try {
+      await submitForm(event.currentTarget, SITE_CONFIG.forms.subjects[type]);
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="py-16 md:py-24 bg-gradient-to-b from-background via-background to-primary/5 dark:from-background-dark dark:via-background-dark dark:to-primary/10">
       <div className="container-custom max-w-5xl">
         {/* Header Title Section */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light text-xs font-bold uppercase tracking-wider mb-4">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            {t('header.application')}
-          </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-text dark:text-text-dark tracking-tight mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-6">
+          <h1 className="text-2xl md:text-3xl font-semibold text-text dark:text-text-dark mb-4">
             {t('applications.title')}
           </h1>
           <p className="text-base md:text-lg text-text-light dark:text-text-dark-light">
@@ -51,7 +60,7 @@ const Applications = ({ initialType }) => {
         </div>
 
         {/* Top Segmented Pill Switcher (Attached Screenshot Design) */}
-        <div className="bg-gray-200/70 dark:bg-gray-800/70 p-1.5 rounded-2xl flex items-center shadow-inner max-w-2xl mx-auto mb-12 border border-gray-300/50 dark:border-gray-700/60">
+        <div className="bg-gray-200/70 dark:bg-gray-800/70 p-1.5 rounded-2xl flex items-center shadow-inner w-full mx-auto mb-6 border border-gray-300/50 dark:border-gray-700/60">
           {['site', 'career'].map((option) => {
             const optionCopy = t(`applications.${option}`, { returnObjects: true });
             const isActive = type === option;
@@ -60,7 +69,7 @@ const Applications = ({ initialType }) => {
                 key={option}
                 type="button"
                 onClick={() => selectType(option)}
-                className={`flex-1 py-3.5 px-6 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 flex items-center justify-center gap-3 ${
+                className={`flex-1 py-3 px-4 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 flex items-center justify-center gap-3 ${
                   isActive
                     ? 'bg-white dark:bg-surface-dark text-primary dark:text-primary-light shadow-md font-bold scale-[1.01]'
                     : 'text-text-light dark:text-text-dark-light hover:text-text dark:hover:text-text-dark hover:bg-white/40 dark:hover:bg-gray-700/40'
@@ -82,9 +91,9 @@ const Applications = ({ initialType }) => {
         </div>
 
         {/* Main Form Container */}
-        <div className="bg-surface dark:bg-surface-dark p-7 md:p-12 rounded-3xl border border-border/80 dark:border-dark-border shadow-hard">
-          <div className="mb-10 pb-6 border-b border-border/60 dark:border-dark-border/60">
-            <h2 className="text-2xl md:text-3xl font-bold text-text dark:text-text-dark mb-2">
+        <div className="bg-surface dark:bg-surface-dark p-6 md:p-6 rounded-3xl border border-border/80 dark:border-dark-border shadow-hard">
+          <div className="mb-4 pb-4 border-b border-border/60 dark:border-dark-border/60">
+            <h2 className="text-xl md:text-2xl font-semibold text-text dark:text-text-dark mb-2">
               {copy.title}
             </h2>
             <p className="text-text-light dark:text-text-dark-light text-sm md:text-base">
@@ -92,19 +101,15 @@ const Applications = ({ initialType }) => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-10">
+          <form onSubmit={handleSubmit} className="space-y-4">
             {type === 'site' ? <SiteQuoteForm copy={copy} /> : <HrForm copy={copy} />}
-
-            <div className="pt-6 border-t border-border/60 dark:border-dark-border/60">
-              <button
-                type="submit"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 bg-gradient-to-r from-primary via-primary-light to-primary text-white font-bold text-base rounded-2xl shadow-medium hover:shadow-hard hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-primary/20"
-              >
+            <div className="pt-4 border-t border-border/60 dark:border-dark-border/60">
+              <FormSubmit className="w-full sm:w-auto group" loading={isSubmitting}>
                 <span>{copy.submit}</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </button>
+              </FormSubmit>
 
               {submitted && (
                 <div className="mt-6 p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 flex items-center gap-3 animate-fade-in">
@@ -114,6 +119,9 @@ const Applications = ({ initialType }) => {
                   <p className="text-sm font-medium">{copy.success}</p>
                 </div>
               )}
+              {submitError && (
+                <p className="mt-4 text-sm text-rose-600 dark:text-rose-400">{t('forms.error')}</p>
+              )}
             </div>
           </form>
         </div>
@@ -122,26 +130,13 @@ const Applications = ({ initialType }) => {
   );
 };
 
-const Field = ({ label, name, type = 'text', required = false, ...props }) => (
-  <div className="flex flex-col space-y-1.5">
-    <label className="text-xs font-bold uppercase tracking-wider text-text-light dark:text-text-dark-light">
-      {label} {required && <span className="text-rose-500">*</span>}
-    </label>
-    <input
-      name={name}
-      type={type}
-      required={required}
-      className="w-full px-4 py-3 rounded-xl border border-border dark:border-dark-border bg-background/50 dark:bg-background-dark/50 text-text dark:text-text-dark text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface dark:focus:bg-surface-dark transition-all duration-200"
-      {...props}
-    />
-  </div>
-);
+const Field = (props) => <FormInput {...props} />;
 
 const Section = ({ title, children }) => (
-  <section className="bg-background/30 dark:bg-background-dark/30 p-6 md:p-8 rounded-2xl border border-border/50 dark:border-dark-border/50 space-y-6">
+  <section className="bg-background/30 dark:bg-background-dark/30 p-6 md:p-6 rounded-2xl border border-border/50 dark:border-dark-border/50 space-y-6">
     <div className="flex items-center gap-3 mb-2">
-      <div className="w-2.5 h-6 rounded-full bg-secondary" />
-      <h3 className="text-lg md:text-xl font-bold text-primary dark:text-primary-light">
+      <div className="w-2 h-5 rounded-full bg-secondary rotate-90" />
+      <h3 className="text-base md:text-lg font-semibold text-text dark:text-text-dark">
         {title}
       </h3>
     </div>
@@ -149,28 +144,49 @@ const Section = ({ title, children }) => (
   </section>
 );
 
+const ServiceToggle = ({ name, yes, no }) => {
+  const [value, setValue] = useState(yes);
+  const isActive = value === yes;
+
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={isActive}
+      aria-label={name}
+      onClick={() => setValue(isActive ? no : yes)}
+      className={`relative flex h-6 w-12 shrink-0 items-center rounded-full px-1 text-[11px] font-bold transition-colors focus:outline-none  focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-surface-dark ${
+        isActive
+          ? 'justify-end bg-primary text-white'
+          : 'justify-start bg-gray-200  text-text-light dark:bg-dark-border dark:text-text-dark-light'
+      }`}
+    >
+      <input type="hidden" name={name} value={value} />
+      {/* <span className="absolute inset-y-0 flex items-center">{isActive ? yes : no}</span> */}
+      <span
+        className={`absolute top-1 h-4 w-4 rounded-full bg-white shadow-md transition-transform duration-200 ${
+          isActive ? 'right-1' : 'left-1'
+        }`}
+      />
+    </button>
+  );
+};
+
 const SiteQuoteForm = ({ copy }) => (
   <>
     <Section title={copy.sections.personal}>
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-4">
         <Field label={copy.name} name="name" required />
         <Field label={copy.email} name="email" type="email" required />
         <Field label={copy.phone} name="phone" type="tel" required />
         <div className="flex flex-col space-y-1.5 sm:col-span-2">
-          <label className="text-xs font-bold uppercase tracking-wider text-text-light dark:text-text-dark-light">
-            {copy.message}
-          </label>
-          <textarea
-            name="message"
-            rows="3"
-            className="w-full px-4 py-3 rounded-xl border border-border dark:border-dark-border bg-background/50 dark:bg-background-dark/50 text-text dark:text-text-dark text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface dark:focus:bg-surface-dark transition-all duration-200"
-          />
+          <FormTextarea label={copy.message} name="message" rows="3" />
         </div>
       </div>
     </Section>
 
     <Section title={copy.sections.site}>
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-4">
         <Field label={copy.siteName} name="siteName" required />
         <Field label={copy.blocks} name="blocks" type="number" min="1" />
         <Field label={copy.address} name="address" />
@@ -185,37 +201,23 @@ const SiteQuoteForm = ({ copy }) => (
         {copy.services.map((service) => (
           <div
             key={service}
-            className="flex items-center justify-between gap-4 rounded-xl border border-border/70 dark:border-dark-border/70 bg-surface dark:bg-surface-dark p-4 text-sm font-medium shadow-soft"
+            className="flex items-center justify-between gap-4 rounded-lg border border-border/70 dark:border-dark-border/70 bg-surface dark:bg-surface-dark px-2 py-2 text-sm font-medium shadow-soft"
           >
             <span className="text-text dark:text-text-dark">{service}</span>
-            <select
-              name={service}
-              className="rounded-lg border border-border dark:border-dark-border bg-background dark:bg-background-dark px-3 py-1.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-primary text-text dark:text-text-dark"
-            >
-              <option>{copy.yes}</option>
-              <option>{copy.no}</option>
-            </select>
+            <ServiceToggle name={service} yes={copy.yes} no={copy.no} />
           </div>
         ))}
       </div>
     </Section>
 
     <Section title={copy.sections.management}>
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-4">
         <Field label={copy.heating} name="heating" />
-        <div className="flex flex-col space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-text-light dark:text-text-dark-light">
-            {copy.management}
-          </label>
-          <select
-            name="management"
-            className="w-full px-4 py-3 rounded-xl border border-border dark:border-dark-border bg-background/50 dark:bg-background-dark/50 text-text dark:text-text-dark text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface dark:focus:bg-surface-dark transition-all duration-200"
-          >
-            <option>{copy.managementOptions[0]}</option>
-            <option>{copy.managementOptions[1]}</option>
-            <option>{copy.managementOptions[2]}</option>
-          </select>
-        </div>
+        <FormSelect label={copy.management} name="management">
+          <option>{copy.managementOptions[0]}</option>
+          <option>{copy.managementOptions[1]}</option>
+          <option>{copy.managementOptions[2]}</option>
+        </FormSelect>
       </div>
     </Section>
   </>
@@ -252,7 +254,7 @@ const HrForm = ({ copy }) => (
     <Section title={copy.sections.education}>
       {['last', 'previous'].map((school) => (
         <div key={school} className="mb-6 last:mb-0 p-4 rounded-xl bg-surface dark:bg-surface-dark border border-border/60 dark:border-dark-border/60">
-          <h4 className="font-bold text-sm text-secondary dark:text-secondary-light uppercase tracking-wider mb-4">
+          <h4 className="font-semibold text-sm text-text dark:text-text-dark mb-4">
             {copy.fields[school]}
           </h4>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -308,26 +310,8 @@ const HrForm = ({ copy }) => (
 
     <Section title={copy.sections.other}>
       <div className="space-y-4">
-        <div className="flex flex-col space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-text-light dark:text-text-dark-light">
-            {copy.fields.clubs}
-          </label>
-          <textarea
-            name="clubs"
-            rows="3"
-            className="w-full px-4 py-3 rounded-xl border border-border dark:border-dark-border bg-background/50 dark:bg-background-dark/50 text-text dark:text-text-dark text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface dark:focus:bg-surface-dark transition-all duration-200"
-          />
-        </div>
-        <div className="flex flex-col space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-text-light dark:text-text-dark-light">
-            {copy.fields.hobbies}
-          </label>
-          <textarea
-            name="hobbies"
-            rows="3"
-            className="w-full px-4 py-3 rounded-xl border border-border dark:border-dark-border bg-background/50 dark:bg-background-dark/50 text-text dark:text-text-dark text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface dark:focus:bg-surface-dark transition-all duration-200"
-          />
-        </div>
+        <FormTextarea label={copy.fields.clubs} name="clubs" rows="3" />
+        <FormTextarea label={copy.fields.hobbies} name="hobbies" rows="3" />
       </div>
     </Section>
 

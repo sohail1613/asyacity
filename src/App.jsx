@@ -13,6 +13,8 @@ import Blog from './pages/Blog';
 import References from './pages/References';
 import Applications from './pages/Applications';
 import ServiceDetail from './pages/ServiceDetail';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path="/referanslar" element={<References />} />
           <Route path="/references" element={<References />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/applications" element={<Applications />} />
           <Route path="/site-teklif-formu" element={<Applications initialType="site" />} />
           <Route path="/insan-kaynaklari-basvuru-formu" element={<Applications initialType="career" />} />

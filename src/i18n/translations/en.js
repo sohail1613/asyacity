@@ -6,11 +6,12 @@ const en = {
     eyebrow: 'OUR REFERENCES',
     title: 'Projects We Proudly Serve',
     subtitle: 'As Asya City, we provide management services for sites, apartments, and collective living spaces with a transparent and sustainable approach.',
-    searchPlaceholder: 'Search project or location...',
+    searchPlaceholder: 'Search project, case or location...',
     allCategories: 'All',
     sites: 'Sites & Residences',
     apartments: 'Apartments',
     villas: 'Villas',
+    employment: 'Employment & Salary',
     noResults: 'No references found matching your search criteria.'
   },
   footer: {

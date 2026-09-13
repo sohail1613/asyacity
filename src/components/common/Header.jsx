@@ -79,7 +79,7 @@ const Header = () => {
             <LanguageSwitcher />
             <ThemeToggle />
             
-            <Link to="/contact" className="hidden md:inline-flex btn-primary text-sm px-5 py-2.5">
+            <Link to="/site-teklif-formu" className="hidden md:inline-flex btn-primary text-sm px-5 py-2.5">
               {t('header.getQuote')}
             </Link>
 
@@ -126,7 +126,7 @@ const Header = () => {
               ))}
               <div className="pt-4 mt-4 border-t border-border dark:border-dark-border">
                 <Link
-                  to="/contact"
+                  to="/site-teklif-formu"
                   className="block btn-primary text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >

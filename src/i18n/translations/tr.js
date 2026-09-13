@@ -6,11 +6,12 @@ const tr = {
     eyebrow: 'REFERANSLARIMIZ',
     title: 'Güvenle hizmet verdiğimiz projeler',
     subtitle: 'Asya City olarak site, apartman ve toplu yaşam alanlarında düzenli, şeffaf ve sürdürülebilir yönetim anlayışıyla hizmet sunuyoruz.',
-    searchPlaceholder: 'Proje veya ilçe ara...',
+    searchPlaceholder: 'Proje, dosya veya ilçe ara...',
     allCategories: 'Tümü',
     sites: 'Siteler & Konutlar',
     apartments: 'Apartmanlar',
     villas: 'Villalar',
+    employment: 'İş ve Ücret Uyuşmazlıkları',
     noResults: 'Aradığınız kriterlere uygun referans bulunamadı.'
   },
   footer: {

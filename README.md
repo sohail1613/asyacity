@@ -27,6 +27,21 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
+## Form Delivery
+
+Forms submit directly to the AJAX endpoint in `REACT_APP_FORM_ENDPOINT`. The default endpoint uses FormSubmit and sends a structured table email to `sohail1613@gmail.com` without opening a mail application.
+
+Available form settings:
+
+- `REACT_APP_FORM_ENDPOINT`
+- `REACT_APP_FORM_RECIPIENT`
+- `REACT_APP_EMAIL`
+- `REACT_APP_PHONE`
+- `REACT_APP_ADDRESS`
+- `REACT_APP_WHATSAPP`
+
+On the first submission, FormSubmit may send an activation email to the recipient. Complete that one-time activation before testing delivery. You can replace the endpoint with Formspree or your own backend later.
+
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `yarn eject`

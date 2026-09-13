@@ -22,6 +22,9 @@ const REFERENCES_DATA = [
   { id: 17, name: 'CUMHURİYET SİTESİ', location: 'Ankara', category: 'site', type: 'Site' },
   { id: 18, name: 'ASYA PARK RESIDENCE', location: 'Çankaya / Ankara', category: 'site', type: 'Site' },
   { id: 19, name: 'BAHÇELİEVLER YAŞAM SİTESİ', location: 'Yenimahalle / Ankara', category: 'site', type: 'Site' },
+  { id: 20, name: 'Employment & Salary Disputes', location: 'Ankara', category: 'employment', type: 'Legal Case' },
+  { id: 21, name: 'Workplace Accident Claims', location: 'Ankara', category: 'employment', type: 'Legal Case' },
+  { id: 22, name: 'Compensation and Injury Claims', location: 'Ankara', category: 'employment', type: 'Legal Case' },
 ];
 
 const References = () => {
@@ -52,6 +55,13 @@ const References = () => {
         </svg>
       );
     }
+    if (category === 'employment') {
+      return (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3l8 4v5c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V7l8-4zm0 5v5m0 0h.01M9 15h6" />
+        </svg>
+      );
+    }
     return (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
@@ -60,16 +70,16 @@ const References = () => {
   };
 
   return (
-    <div className="py-16 md:py-24 bg-gradient-to-b from-background via-background to-primary/5 dark:from-background-dark dark:via-background-dark dark:to-primary/10">
+    <div className="py-8 md:py-8 bg-gradient-to-b from-background via-background to-primary/5 dark:from-background-dark dark:via-background-dark dark:to-primary/10">
       <div className="container-custom">
         {/* Header Top Section */}
-        <div className="max-w-4xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light text-xs font-bold uppercase tracking-wider mb-6">
+        <div className="max-w-4xl mx-auto text-center mb-10">
+          {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light text-xs font-bold uppercase tracking-wider mb-6">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
             {t('references.eyebrow')}
-          </div>
+          </div> */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-text dark:text-text-dark tracking-tight leading-tight mb-6">
             {t('references.title')}
           </h1>
@@ -79,20 +89,21 @@ const References = () => {
         </div>
 
         {/* Filter & Search Bar */}
-        <div className="max-w-4xl mx-auto mb-12 flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="max-w-6xl mx-auto mb-6 flex flex-col md:flex-row gap-4 items-center justify-between">
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-surface dark:bg-surface-dark border border-border dark:border-dark-border rounded-2xl shadow-soft w-full md:w-auto">
+          <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-surface dark:bg-surface-dark border border-border dark:border-dark-border rounded-xl shadow-soft w-full md:w-auto">
             {[
               { id: 'all', label: t('references.allCategories') },
               { id: 'site', label: t('references.sites') },
               { id: 'apartment', label: t('references.apartments') },
               { id: 'villa', label: t('references.villas') },
+              { id: 'employment', label: t('references.employment') },
             ].map((cat) => (
               <button
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   activeCategory === cat.id
                     ? 'bg-primary text-white shadow-medium'
                     : 'text-text-light dark:text-text-dark-light hover:text-primary dark:hover:text-primary-light hover:bg-primary/5'
@@ -110,7 +121,7 @@ const References = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('references.searchPlaceholder')}
-              className="w-full pl-11 pr-4 py-3 rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-surface-dark text-text dark:text-text-dark text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-soft"
+              className="w-full pl-11 pr-4 py-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-surface-dark text-text dark:text-text-dark text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-soft"
             />
             <svg className="w-5 h-5 absolute left-3.5 top-3.5 text-text-light dark:text-text-dark-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -165,7 +176,7 @@ const References = () => {
         )}
 
         {/* CTA Bottom Box */}
-        <div className="mt-20 bg-gradient-to-r from-primary via-primary-light to-primary p-8 md:p-12 rounded-3xl text-white shadow-hard flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <div className="mt-6 bg-gradient-to-r from-primary via-primary-light to-primary p-8 md:p-12 rounded-3xl text-white shadow-hard flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div className="max-w-2xl">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
               Siteniz için Profesyonel Yönetim Teklifi Alın
