@@ -187,7 +187,7 @@ const References = () => {
           </div>
           <Link
             to="/site-teklif-formu"
-            className="px-8 py-4 bg-secondary hover:bg-secondary-dark text-text-dark font-bold text-base rounded-2xl shadow-medium hover:scale-105 transition-all duration-300 whitespace-nowrap"
+            className="px-8 py-4 bg-secondary hover:bg-secondary-dark text-text-dark font-bold text-base rounded-xl shadow-medium hover:scale-105 transition-all duration-300 whitespace-nowrap"
           >
             Teklif Formunu Doldurun
           </Link>

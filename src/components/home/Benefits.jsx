@@ -49,7 +49,7 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="bg-white dark:bg-surface-dark p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-2 border-t-4 border-secondary"
+              className="bg-white dark:bg-surface-dark p-8 shadow-soft hover:shadow-medium rounded-md transition-all duration-300 hover:-translate-y-2 border-t-4 border-secondary"
             >
               <div className="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center text-secondary mb-6">
                 {icons[index % icons.length].svg}

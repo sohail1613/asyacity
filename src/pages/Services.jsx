@@ -29,9 +29,8 @@ const Services = () => {
   ];
 
   return (
-    <div className="py-20">
+    <div className="py-10">
       <div className="container-custom">
-        <p className="eyebrow text-secondary text-center mb-4">ASYA CITY</p>
         <h1 className="brand-display section-title text-center">
           {isEnglish ? 'Our Services' : 'Hizmetlerimiz'}
         </h1>
@@ -45,11 +44,11 @@ const Services = () => {
               to={`/services/${key}`}
               key={key}
               id={key}
-              className="group scroll-mt-24 bg-surface dark:bg-surface-dark p-8 shadow-soft border-t-4 border-secondary hover:-translate-y-1 transition-transform"
+              className="group scroll-mt-24 rounded-md bg-surface dark:bg-surface-dark p-8 shadow-soft border-t-4 border-secondary hover:-translate-y-1 transition-transform"
             >
-              <div className="relative h-48 overflow-hidden mb-6">
-                <img src={SERVICE_IMAGES[key]} alt={title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <span className="absolute bottom-3 left-3 bg-primary-dark text-secondary px-3 py-1 text-sm font-bold">0{index + 1}</span>
+              <div className="relative h-72 md:h-80 overflow-hidden mb-6">
+                <img src={SERVICE_IMAGES[key]} alt={title} className="h-full rounded-md w-full object-contain bg-surface dark:bg-surface-dark transition-transform duration-500 group-hover:scale-105" />
+                <span className="absolute rounded-md bottom-3 left-3 bg-primary-dark text-secondary px-3 py-1 text-sm font-bold">0{index + 1}</span>
               </div>
               <div className="flex items-start justify-between gap-4 mb-4">
                 <h2 className="text-2xl font-bold text-text dark:text-text-dark flex-1">{title}</h2>
@@ -64,7 +63,7 @@ const Services = () => {
             </Link>
           ))}
         </div>
-        <div className="mt-14 bg-primary-dark text-white p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="mt-14 bg-primary-dark text-white p-8 md:p-12 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div><p className="eyebrow text-secondary mb-3">{isEnglish ? 'FREE INITIAL ASSESSMENT' : 'ÜCRETSİZ ÖN KEŞİF'}</p><h2 className="brand-display text-3xl font-bold">{isEnglish ? 'Let’s build the right plan for your site.' : 'Siteniz için doğru yönetim planını oluşturalım.'}</h2></div>
           <a href="/site-teklif-formu" className="btn-primary whitespace-nowrap">{isEnglish ? 'Get a quote' : 'Teklif alın'}</a>
         </div>

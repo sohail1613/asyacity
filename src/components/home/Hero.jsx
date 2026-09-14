@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
+import building1 from '../../assets/building_1.jpeg';
+import building2 from '../../assets/building_2.jpeg';
+import building3 from '../../assets/building_3.jpeg';
+
+const heroImages = [building1, building2, building3];
 
 const Hero = () => {
   const { t } = useTranslation('home');
+  const [activeImage, setActiveImage] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveImage((currentImage) => (currentImage + 1) % heroImages.length);
+    }, 4500);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   return (
-    <section className="relative min-h-[760px] flex items-center overflow-hidden bg-primary-dark">
-      <div className="absolute inset-0 bg-cover bg-center opacity-45" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=85')" }} />
+    <section className="relative min-h-[calc(100dvh-4rem)] flex items-center overflow-hidden bg-primary-dark">
+      {heroImages.map((image, index) => (
+        <div
+          key={image}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ${index === activeImage ? 'opacity-75' : 'opacity-0'}`}
+          style={{ backgroundImage: `url("${image}")` }}
+          aria-hidden={index !== activeImage}
+        />
+      ))}
       <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/90 to-primary-dark/35" />
       
       {/* Background Pattern */}
@@ -19,8 +40,8 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative container-custom py-36 md:py-44">
-        <div className="max-w-3xl">
+      <div className="relative container-custom py-6 sm:py-28 md:py-6">
+        <div className="max-w-4xl">
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 text-[#d8f05c] eyebrow mb-7">
             <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />

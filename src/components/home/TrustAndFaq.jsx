@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
+import { ArrowUpRight } from '../../assets/commonIcons/icon';
 
 const TrustAndFaq = () => {
   const { t } = useTranslation('common');
@@ -23,9 +24,9 @@ const TrustAndFaq = () => {
               {t('trust.link')} <span className="ml-2">→</span>
             </Link>
           </div>
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4 ">
             {t('trust.items', { returnObjects: true }).map((item, index) => (
-                <div key={item} className="border border-white/15 p-6 min-h-[150px]">
+                <div key={item} className="border border-white/15 rounded-md shadow-md p-6 min-h-[150px]">
                   <span className="text-[#d8f05c] text-sm font-bold">0{index + 1}</span>
                   <h3 className="mt-10 text-xl font-bold">{item}</h3>
                 </div>
@@ -34,7 +35,7 @@ const TrustAndFaq = () => {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-16">
         <div className="container-custom grid lg:grid-cols-[.8fr_1.2fr] gap-16">
           <div>
             <p className="eyebrow text-[#637068] mb-4">{t('trust.faqEyebrow')}</p>
@@ -60,7 +61,7 @@ const TrustAndFaq = () => {
             <h2 className="display-copy text-4xl md:text-5xl font-extrabold text-[#19382e]">{t('trust.ctaTitle')}</h2>
           </div>
               <Link to="/site-teklif-formu" className="inline-flex items-center justify-center bg-primary-dark text-white px-7 py-4 rounded-lg font-bold hover:bg-black transition-colors whitespace-nowrap">
-            {t('trust.ctaButton')} <span className="ml-3">↗</span>
+            {t('trust.ctaButton')} <span className="ml-3"><ArrowUpRight /> </span>
           </Link>
         </div>
       </section>

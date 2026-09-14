@@ -4,6 +4,7 @@ import { useTranslation } from '../../hooks/useTranslation';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
 import asyaCityLogo from '../../assets/amblem sosyal medya için (1).jpg';
+import Logo from "../../assets/logo.png"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,14 +51,14 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={asyaCityLogo} alt="Asya City" className="w-16 sm:w-26 h-auto object-contain" />
+            <img src={Logo} alt="Asya City" className="w-16 sm:w-26 h-auto object-contain" />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
               <div key={item.path} className="relative group">
-                <Link to={item.path} className={`px-3 py-2 text-sm font-medium rounded-lg transition-all inline-flex items-center ${isActive(item.path) ? 'text-primary dark:text-primary-light bg-primary/5 dark:bg-primary/10' : 'text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800'}`}>
+                <Link to={item.path} className={`px-3 py-2 font-medium rounded-lg text-base transition-all inline-flex items-center ${isActive(item.path) ? 'text-primary dark:text-primary-light bg-primary/5 dark:bg-primary/10' : 'text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800'}`}>
                   {item.label}{item.children && <span className="ml-2 text-xs">⌄</span>}
                 </Link>
                 {item.children && <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all absolute left-0 top-full mt-2 w-72 bg-white dark:bg-dark-surface rounded-xl shadow-hard border border-border dark:border-dark-border p-2 z-50">{item.children.map((child) => <Link key={child.path} to={child.path} className="block rounded-lg px-4 py-3 text-sm hover:bg-primary/5 dark:hover:bg-primary/10">{child.label}</Link>)}</div>}

@@ -1,13 +1,15 @@
 import React from 'react';
 import { useTranslation } from '../hooks/useTranslation';
+import building1 from '../assets/building_1.jpeg';
+import building2 from '../assets/building_2.jpeg';
+import building3 from '../assets/building_3.jpeg';
 
 const About = () => {
   const { isEnglish } = useTranslation('common');
 
   return (
-    <div className="py-20">
+    <div className="py-10">
       <div className="container-custom">
-        <p className="eyebrow text-secondary text-center mb-4">ASYA CITY</p>
         <h1 className="brand-display section-title text-center">
           {isEnglish ? 'About Us' : 'Hakkımızda'}
         </h1>
@@ -17,8 +19,16 @@ const About = () => {
             : 'Güven, şeffaflık ve uzmanlıkla yönetilen yaşam alanları.'}
         </p>
 
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_0.8fr] gap-5 mt-12">
+          <img src={building1} alt={isEnglish ? 'Asya City managed residential building' : 'Asya City tarafından yönetilen konut projesi'} className="w-full rounded-lg h-80 md:h-[28rem] object-cover" />
+          <div className="grid grid-rows-2 gap-5">
+            <img src={building2} alt={isEnglish ? 'Residential community exterior' : 'Konut yaşam alanı dış görünümü'} className="w-full rounded-lg h-40 md:h-auto object-cover" />
+            <img src={building3} alt={isEnglish ? 'Modern shared living space' : 'Modern ortak yaşam alanı'} className="w-full rounded-lg h-40 md:h-auto object-cover" />
+          </div>
+        </div>
+
         <div className="max-w-4xl mx-auto mt-12 space-y-8">
-          <div className="bg-primary-dark text-white p-8 md:p-12 shadow-soft">
+          <div className="bg-primary-DEFAULT text-white p-8 md:p-12 shadow-hard rounded-lg">
             <h2 className="text-2xl font-bold text-text dark:text-text-dark mb-4">
               {isEnglish ? 'Our approach' : 'Yönetim anlayışımız'}
             </h2>
@@ -30,7 +40,7 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#f8f5ee] dark:bg-surface-dark p-8 shadow-soft border-t-4 border-secondary">
+            <div className="bg-[#f8f5ee] rounded-md dark:bg-surface-dark p-8 shadow-soft border-t-4 border-secondary">
               <h3 className="text-xl font-bold text-text dark:text-text-dark mb-3">
                 {isEnglish ? 'Our mission' : 'Misyonumuz'}
               </h3>
@@ -40,7 +50,7 @@ const About = () => {
                   : 'Yaşam alanlarında huzur, güven ve sürdürülebilir yönetim sağlamak.'}
               </p>
             </div>
-            <div className="bg-[#f8f5ee] dark:bg-surface-dark p-8 shadow-soft border-t-4 border-secondary">
+            <div className="bg-[#f8f5ee] rounded-md dark:bg-surface-dark p-8 shadow-soft border-t-4 border-secondary">
               <h3 className="text-xl font-bold text-text dark:text-text-dark mb-3">
                 {isEnglish ? 'Our vision' : 'Vizyonumuz'}
               </h3>

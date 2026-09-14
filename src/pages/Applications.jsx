@@ -106,12 +106,12 @@ const Applications = ({ initialType }) => {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {type === 'site' ? <SiteQuoteForm copy={copy} /> : <HrForm copy={copy} />}
-            <div className="pt-4 border-t border-border/60 dark:border-dark-border/60">
+            <div className="pt-4 border-t justify-end flex border-border/60 dark:border-dark-border/60">
               <FormSubmit className="w-full sm:w-auto group" loading={isSubmitting}>
                 <span>{copy.submit}</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {/* <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                </svg> */}
               </FormSubmit>
 
               {submitted && (
