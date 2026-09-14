@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
 import { SITE_CONFIG } from '../../config/site';
+import asyaCityLogo from '../../assets/amblem sosyal medya için (1).jpg';
 
 const Footer = () => {
   const { t, isEnglish } = useTranslation('common');
@@ -18,7 +19,7 @@ const Footer = () => {
   ];
 
   const serviceLinks = [
-    { path: '/services#finance', label: isEnglish ? 'Finance & Accounting' : 'Finans & Muhasebe' },
+    { path: '/services#accounting', label: isEnglish ? 'Finance & Accounting' : 'Finans & Muhasebe' },
     { path: '/services#technical', label: isEnglish ? 'Technical & Maintenance' : 'Teknik & Bakım' },
     { path: '/services#communication', label: isEnglish ? 'Resident Relations' : 'İletişim & Sakin İlişkileri' },
     { path: '/services#legal', label: isEnglish ? 'Legal & Administrative' : 'Yasal & İdari Süreçler' },
@@ -31,11 +32,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="text-primary-dark font-bold text-lg">A</span>
-              </div>
-              <span className="text-xl font-bold text-white">Asya City</span>
+            <div className="mb-4 p-3 w-fit">
+              <img src={asyaCityLogo} alt="Asya City" className="w-48 h-auto" />
             </div>
             <p className="text-white/70 text-sm mb-4">
               {t('footer.tagline')}

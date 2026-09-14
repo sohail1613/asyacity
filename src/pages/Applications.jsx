@@ -4,6 +4,7 @@ import { useTranslation } from '../hooks/useTranslation';
 import { FormInput, FormSelect, FormSubmit, FormTextarea } from '../components/common/FormControls';
 import { SITE_CONFIG } from '../config/site';
 import { submitForm } from '../utils/submitForm';
+import asyaCityLogo from '../assets/amblem sosyal medya için (1).jpg';
 
 const Applications = ({ initialType }) => {
   const { t } = useTranslation('common');
@@ -91,7 +92,9 @@ const Applications = ({ initialType }) => {
         </div>
 
         {/* Main Form Container */}
-        <div className="bg-surface dark:bg-surface-dark p-6 md:p-6 rounded-3xl border border-border/80 dark:border-dark-border shadow-hard">
+        <div className="relative overflow-hidden bg-surface dark:bg-surface-dark p-6 md:p-6 rounded-3xl border border-border/80 dark:border-dark-border shadow-hard">
+          <img src={asyaCityLogo} alt="" aria-hidden="true" className="pointer-events-none absolute right-4 bottom-8 w-80 max-w-[65%] opacity-[0.045]" />
+          <div className="relative z-10">
           <div className="mb-4 pb-4 border-b border-border/60 dark:border-dark-border/60">
             <h2 className="text-xl md:text-2xl font-semibold text-text dark:text-text-dark mb-2">
               {copy.title}
@@ -124,6 +127,7 @@ const Applications = ({ initialType }) => {
               )}
             </div>
           </form>
+          </div>
         </div>
       </div>
     </div>

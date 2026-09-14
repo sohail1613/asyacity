@@ -1,10 +1,10 @@
 export const SITE_CONFIG = {
   company: {
     name: 'Asya City',
-    email: process.env.REACT_APP_EMAIL || 'sohail1613@gmail.com',
-    phone: process.env.REACT_APP_PHONE || '0 (850) 480 05 25',
-    address: process.env.REACT_APP_ADDRESS || 'Ankara, Türkiye',
-    whatsapp: process.env.REACT_APP_WHATSAPP || '905XXXXXXXXX',
+    email: process.env.REACT_APP_EMAIL || 'info@asyacity.com',
+    phone: process.env.REACT_APP_PHONE || '0535 535 67 50',
+    address: process.env.REACT_APP_ADDRESS || 'Çankaya / Ankara',
+    whatsapp: process.env.REACT_APP_WHATSAPP || '905355356750',
   },
   developer: {
     name: 'Sohail',

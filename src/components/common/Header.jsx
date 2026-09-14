@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
+import asyaCityLogo from '../../assets/amblem sosyal medya için (1).jpg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Header = () => {
     { path: '/services', label: t('header.services'), children: [
       ['consulting', t('servicePages.consulting.title')], ['security', t('servicePages.security.title')], ['legal', t('servicePages.legal.title')], ['staff', t('servicePages.staff.title')], ['accounting', t('servicePages.accounting.title')], ['technical', t('servicePages.technical.title')], ['cleaning', t('servicePages.cleaning.title')], ['pool', t('servicePages.pool.title')], ['landscape', t('servicePages.landscape.title')]
     ].map(([slug, label]) => ({ path: `/services/${slug}`, label })) },
-    { path: '/how-it-works', label: t('header.management'), children: [{ path: '/how-it-works', label: t('header.howItWorks') }, { path: '/pricing', label: t('header.pricing') }] },
+    // Site Management navigation temporarily hidden.
     { path: '/applications', label: t('header.application'), children: [{ path: '/site-teklif-formu', label: t('applications.site.title') }, { path: '/insan-kaynaklari-basvuru-formu', label: t('applications.career.title') }] },
     { path: '/referanslar', label: t('header.references') },
     { path: '/contact', label: t('header.contact') },
@@ -48,18 +49,8 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-11 h-11 bg-primary rounded-xl flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow">
-              <span className="text-white font-bold text-xl">A</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-primary dark:text-primary-light font-bold text-xl leading-tight">
-                Asya City
-              </span>
-              <span className="block text-xs text-text-light dark:text-text-dark-light">
-                {isEnglish ? 'Professional Site Management' : 'Profesyonel Site Yönetimi'}
-              </span>
-            </div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img src={asyaCityLogo} alt="Asya City" className="w-16 sm:w-26 h-auto object-contain" />
           </Link>
 
           {/* Desktop Navigation */}

@@ -9,11 +9,11 @@ const TrustAndFaq = () => {
 
   return (
     <>
-      <section className="py-24 bg-[#19382e] text-white">
+      <section className="py-24 bg-primary-dark text-white">
         <div className="container-custom grid lg:grid-cols-[1fr_1.2fr] gap-14 items-start">
           <div>
-            <p className="eyebrow text-[#d8f05c] mb-5">{t('trust.eyebrow')}</p>
-            <h2 className="display-copy text-4xl md:text-5xl font-extrabold leading-tight">
+            <p className="eyebrow text-secondary mb-5">{t('trust.eyebrow')}</p>
+            <h2 className="brand-display text-4xl md:text-5xl font-bold leading-tight">
               {t('trust.title')}
             </h2>
             <p className="mt-6 text-white/70 leading-relaxed max-w-lg">
@@ -59,7 +59,7 @@ const TrustAndFaq = () => {
             <p className="eyebrow text-[#19382e] mb-4">{t('trust.ctaEyebrow')}</p>
             <h2 className="display-copy text-4xl md:text-5xl font-extrabold text-[#19382e]">{t('trust.ctaTitle')}</h2>
           </div>
-          <Link to="/contact" className="inline-flex items-center justify-center bg-[#19382e] text-white px-7 py-4 rounded-full font-bold hover:bg-black transition-colors whitespace-nowrap">
+              <Link to="/site-teklif-formu" className="inline-flex items-center justify-center bg-primary-dark text-white px-7 py-4 rounded-lg font-bold hover:bg-black transition-colors whitespace-nowrap">
             {t('trust.ctaButton')} <span className="ml-3">↗</span>
           </Link>
         </div>

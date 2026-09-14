@@ -3,6 +3,7 @@ import { useTranslation } from '../hooks/useTranslation';
 import { FormInput, FormSubmit, FormTextarea } from '../components/common/FormControls';
 import { SITE_CONFIG } from '../config/site';
 import { submitForm } from '../utils/submitForm';
+import asyaCityLogo from '../assets/amblem sosyal medya için (1).jpg';
 
 const Contact = () => {
   const { t, isEnglish } = useTranslation('common');
@@ -41,7 +42,9 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Contact Form Card (7 cols) */}
-          <div className="lg:col-span-7 bg-surface dark:bg-surface-dark p-8 md:p-6 rounded-3xl border border-border/80 dark:border-dark-border shadow-hard">
+          <div className="relative overflow-hidden lg:col-span-7 bg-surface dark:bg-surface-dark p-8 md:p-6 rounded-3xl border border-border/80 dark:border-dark-border shadow-hard">
+            <img src={asyaCityLogo} alt="" aria-hidden="true" className="pointer-events-none absolute right-0 bottom-12 w-72 max-w-[55%] opacity-[0.045]" />
+            <div className="relative z-10">
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-text dark:text-text-dark mb-2">
                 {copy.formTitle}
@@ -85,6 +88,7 @@ const Contact = () => {
                 <p className="text-sm text-rose-600 dark:text-rose-400">{isEnglish ? 'We could not send your request. Please try again.' : 'Talebiniz gönderilemedi. Lütfen tekrar deneyin.'}</p>
               )}
             </form>
+            </div>
           </div>
 
           {/* Contact Info Sidebar (5 cols) */}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
+import { SERVICE_IMAGES } from '../config/images';
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -16,6 +17,7 @@ const ServiceDetail = () => {
           <h1 className="section-title">{service.title}</h1>
           <p className="section-subtitle">{service.intro}</p>
         </div>
+        <img src={SERVICE_IMAGES[slug]} alt={service.title} className="mt-10 h-64 md:h-96 w-full object-cover" />
         <div className="grid md:grid-cols-3 gap-5 mt-14">
           {service.points.map((point, index) => (
             <div key={point} className="bg-surface dark:bg-surface-dark border border-border dark:border-dark-border p-6 rounded-2xl">

@@ -13,7 +13,7 @@
   
   body {
     @apply bg-background text-text dark:bg-background-dark dark:text-text-dark antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -52,7 +52,7 @@
   }
   
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-secondary text-text-dark font-semibold rounded-lg hover:bg-secondary-dark transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-secondary/50;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-secondary text-primary-dark font-semibold rounded-lg hover:bg-secondary-light transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-secondary/50;
   }
   
   .btn-secondary {
@@ -64,7 +64,7 @@
   }
   
   .gradient-hero {
-    @apply bg-gradient-to-br from-primary/90 via-primary/70 to-primary-dark/80;
+    @apply bg-gradient-to-br from-primary via-primary-dark to-[#071525];
   }
   
   .gradient-section {
@@ -73,6 +73,15 @@
   
   .glass {
     @apply bg-white/80 dark:bg-dark/80 backdrop-blur-md border border-white/20 dark:border-white/10;
+  }
+
+  .brand-display {
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.02em;
+  }
+
+  .gold-rule {
+    @apply h-px bg-secondary/70;
   }
 
   .form-input {

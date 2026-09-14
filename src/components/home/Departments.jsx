@@ -57,9 +57,9 @@ const Departments = () => {
           {departments.map((dept) => (
             <div 
               key={dept.key}
-              className="group bg-surface dark:bg-surface-dark rounded-2xl p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-2 border border-border dark:border-dark-border cursor-pointer"
+              className="group bg-surface dark:bg-surface-dark p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-2 border border-border dark:border-dark-border cursor-pointer"
             >
-              <div className="w-16 h-16 bg-secondary/10 dark:bg-secondary/20 rounded-2xl flex items-center justify-center text-secondary mb-5 group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-primary-dark rounded-full flex items-center justify-center text-secondary mb-5 group-hover:scale-110 transition-transform">
                 {dept.icon}
               </div>
               <h3 className="text-xl font-bold text-text dark:text-text-dark mb-2">
