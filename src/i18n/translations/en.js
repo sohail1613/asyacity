@@ -1,6 +1,6 @@
 const en = {
   header: {
-    home: 'Home', services: 'Services', whyProfessional: 'Why Professional?', howItWorks: 'How It Works', pricing: 'Pricing', about: 'About', corporate: 'Corporate', management: 'Site Management', blog: 'Blog', references: 'References', contact: 'Contact', application: 'Apply', contactButton: 'Contact', getQuote: 'Get a Quote'
+    home: 'Home', services: 'Services', whyProfessional: 'Why Asya City?', howItWorks: 'How It Works', pricing: 'Pricing', about: 'About', corporate: 'Corporate', management: 'Site Management', blog: 'Blog', references: 'References', contact: 'Contact', application: 'Apply', contactButton: 'Contact', getQuote: 'Get a Quote'
   },
   references: {
     eyebrow: 'OUR REFERENCES',

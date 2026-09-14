@@ -29,7 +29,7 @@ Your app is ready to be deployed!
 
 ## Form Delivery
 
-Forms submit directly to the AJAX endpoint in `REACT_APP_FORM_ENDPOINT`. The default endpoint uses FormSubmit and sends a structured table email to `sohail1613@gmail.com` without opening a mail application.
+Forms submit directly to the AJAX endpoint in `REACT_APP_FORM_ENDPOINT`. The default endpoint uses FormSubmit and sends a structured table email to `av.halilsahinn@gmail.com` without opening a mail application.
 
 Available form settings:
 

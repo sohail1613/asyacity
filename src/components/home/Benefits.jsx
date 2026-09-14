@@ -38,7 +38,7 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="py-20 gradient-section">
+    <section className="py-20 bg-[#f8f5ee]">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-title">{t('benefits.title')}</h2>
@@ -49,9 +49,9 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="bg-surface dark:bg-surface-dark rounded-2xl p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-2 border border-border dark:border-dark-border"
+              className="bg-white dark:bg-surface-dark p-8 shadow-soft hover:shadow-medium rounded-md transition-all duration-300 hover:-translate-y-2 border-t-4 border-secondary"
             >
-              <div className="w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-2xl flex items-center justify-center text-primary dark:text-primary-light mb-6">
+              <div className="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center text-secondary mb-6">
                 {icons[index % icons.length].svg}
               </div>
               <h3 className="text-xl font-bold text-text dark:text-text-dark mb-3">{benefit.title}</h3>

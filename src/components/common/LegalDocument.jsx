@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
 import LoadingSpinner from './LoadingSpinner';
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import { LeftArrowIcon } from '../../assets/commonIcons/icon';
 
 const LegalDocument = ({ title, intro, updated, sections }) => {
   const { isEnglish } = useTranslation('common');
@@ -16,16 +18,16 @@ const LegalDocument = ({ title, intro, updated, sections }) => {
   return (
     <div className="bg-background py-6 dark:bg-background-dark md:py-6">
       <article className="container-custom max-w-4xl">
-        <button
+        {/* <button
           type="button"
           onClick={goHome}
           disabled={isNavigating}
           className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-primary transition-colors hover:bg-gray-200 hover:text-primary-light disabled:cursor-wait disabled:opacity-70 dark:hover:bg-gray-800 dark:text-primary-light"
         >
-          {isNavigating ? <LoadingSpinner /> : <span aria-hidden="true">←</span>}
+          {isNavigating ? <LoadingSpinner /> : <span aria-hidden="true"> <LeftArrowIcon /> </span>}
           <span>{isEnglish ? 'Back to home' : 'Ana sayfaya dön'}</span>
-        </button>
-        <header className="mt-8 border-b border-border pb-8 dark:border-dark-border">
+        </button> */}
+        <header className="mt-0 border-b border-border pb-8 dark:border-dark-border">
           <h1 className="text-3xl font-semibold text-text dark:text-text-dark md:text-4xl">{title}</h1>
           <p className="mt-4 text-base leading-7 text-text-light dark:text-text-dark-light">{intro}</p>
           <p className="mt-4 text-sm text-text-light dark:text-text-dark-light">

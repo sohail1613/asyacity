@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
 import { SITE_CONFIG } from '../../config/site';
+import asyaCityLogo from '../../assets/amblem sosyal medya için (1).jpg';
+import Logo from "../../assets/logo.png";
+import { ArrowUpRight } from '../../assets/commonIcons/icon';
 
 const Footer = () => {
   const { t, isEnglish } = useTranslation('common');
@@ -10,43 +13,40 @@ const Footer = () => {
     { path: '/', label: t('header.home') },
     { path: '/services', label: t('header.services') },
     { path: '/why-professional', label: t('header.whyProfessional') },
-    { path: '/how-it-works', label: t('header.howItWorks') },
-    { path: '/pricing', label: t('header.pricing') },
+    // { path: '/how-it-works', label: t('header.howItWorks') },
+    // { path: '/pricing', label: t('header.pricing') },
     { path: '/about', label: t('header.about') },
-    { path: '/blog', label: t('header.blog') },
+    // { path: '/blog', label: t('header.blog') },
     { path: '/contact', label: t('header.contact') },
   ];
 
   const serviceLinks = [
-    { path: '/services#finance', label: isEnglish ? 'Finance & Accounting' : 'Finans & Muhasebe' },
+    { path: '/services#accounting', label: isEnglish ? 'Finance & Accounting' : 'Finans & Muhasebe' },
     { path: '/services#technical', label: isEnglish ? 'Technical & Maintenance' : 'Teknik & Bakım' },
     { path: '/services#communication', label: isEnglish ? 'Resident Relations' : 'İletişim & Sakin İlişkileri' },
     { path: '/services#legal', label: isEnglish ? 'Legal & Administrative' : 'Yasal & İdari Süreçler' },
   ];
 
   return (
-    <footer className="bg-primary-dark text-white/90">
+    <footer className="bg-primary-600 text-white/90">
       {/* Main Footer */}
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="text-primary-dark font-bold text-lg">A</span>
-              </div>
-              <span className="text-xl font-bold text-white">Asya City</span>
+            <div className="mb-4 p-3 w-fit">
+              <img src={Logo} alt="Asya City" className="w-48 h-auto" />
             </div>
             <p className="text-white/70 text-sm mb-4">
               {t('footer.tagline')}
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a href={SITE_CONFIG.developer.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-secondary transition-colors" aria-label="LinkedIn">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/>
                 </svg>
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -121,7 +121,7 @@ const Footer = () => {
             </a>
             <a href={SITE_CONFIG.developer.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white/70 hover:text-secondary transition-colors text-sm">
               <span>LinkedIn</span>
-              <span aria-hidden="true">↗</span>
+              <span aria-hidden="true"><ArrowUpRight/> </span>
             </a>
           </div>
         </div>
