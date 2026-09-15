@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import { SERVICE_IMAGES } from '../config/images';
 import { SERVICE_DETAILS, SERVICE_PAGE_CONTENT } from '../config/serviceDetails';
+import { ArrowUpRight } from '../assets/commonIcons/icon';
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -37,13 +38,13 @@ const ServiceDetail = () => {
               : 'Bina ve sitenizin günlük ihtiyaçlarına göre planlanan, uygulanabilir hizmet kapsamı.'}
           </p>
           <div className="grid md:grid-cols-3 gap-5 mt-7">
-          {service.points.map((point, index) => (
-            <div key={point} className="bg-surface dark:bg-surface-dark border border-border dark:border-dark-border p-6 rounded-2xl">
-              <span className="text-secondary font-bold">0{index + 1}</span>
-              <h2 className="font-bold text-lg mt-8">{point}</h2>
-              <p className="mt-4 text-text-light dark:text-text-dark-light">{detailDescriptions[index]}</p>
-            </div>
-          ))}
+            {service.points.map((point, index) => (
+              <div key={point} className="bg-surface dark:bg-surface-dark border border-border dark:border-dark-border p-6 rounded-2xl">
+                <span className="text-secondary font-bold">0{index + 1}</span>
+                <h2 className="font-bold text-lg mt-8">{point}</h2>
+                <p className="mt-4 text-text-light dark:text-text-dark-light">{detailDescriptions[index]}</p>
+              </div>
+            ))}
           </div>
         </section>
         <section className="mt-14 grid md:grid-cols-2 gap-8">
@@ -73,7 +74,7 @@ const ServiceDetail = () => {
         <div className="mt-14 p-8 md:p-12 bg-primary-dark text-white rounded-2xl">
           <h2 className="text-3xl font-bold">{t('servicePages.ctaTitle')}</h2>
           <p className="mt-4 text-white/70 max-w-2xl">{t('servicePages.ctaText')}</p>
-          <Link to="/site-teklif-formu" className="inline-flex mt-7 btn-primary">{t('header.getQuote')} ↗</Link>
+          <Link to="/site-teklif-formu" className="inline-flex mt-7 btn-primary gap-x-2">{t('header.getQuote')} <ArrowUpRight stroke={2} /> </Link>
         </div>
       </div>
     </div>

@@ -2,9 +2,9 @@ export const SITE_CONFIG = {
   company: {
     name: 'Asya City',
     email: process.env.REACT_APP_EMAIL || 'av.halilsahinn@gmail.com',
-    phone: process.env.REACT_APP_PHONE || '0535 535 67 50',
+    phone: process.env.REACT_APP_PHONE || '+90 536 296 75 02',
     address: process.env.REACT_APP_ADDRESS || 'Çankaya / Ankara',
-    whatsapp: process.env.REACT_APP_WHATSAPP || '905355356750',
+    whatsapp: process.env.REACT_APP_WHATSAPP || '+905362967502',
   },
   developer: {
     name: 'Sohail',
@@ -22,7 +22,7 @@ export const SITE_CONFIG = {
   },
   office: {
     locations: 'Eryaman & Çankaya Bölge Ofisleri',
-    weekdays: 'Pzt-Cum: 09:00 - 18:00',
+    weekdays: 'Pzt-Cum: 09:00 - 17:00',
     saturday: 'Cmt: 10:00 - 14:00',
     sunday: 'Paz: Kapalı',
   },

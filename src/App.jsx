@@ -15,6 +15,7 @@ import Applications from './pages/Applications';
 import ServiceDetail from './pages/ServiceDetail';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/applications" element={<Applications />} />
           <Route path="/site-teklif-formu" element={<Applications initialType="site" />} />
           <Route path="/insan-kaynaklari-basvuru-formu" element={<Applications initialType="career" />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

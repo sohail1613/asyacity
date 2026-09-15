@@ -4,8 +4,9 @@ import { useTranslation } from '../../hooks/useTranslation';
 import building1 from '../../assets/building_1.jpeg';
 import building2 from '../../assets/building_2.jpeg';
 import building3 from '../../assets/building_3.jpeg';
+import building4 from "../../assets/building_4.jpeg";
 
-const heroImages = [building1, building2, building3];
+const heroImages = [building1, building2, building3, building4];
 
 const Hero = () => {
   const { t } = useTranslation('home');
@@ -24,15 +25,15 @@ const Hero = () => {
       {heroImages.map((image, index) => (
         <div
           key={image}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ${index === activeImage ? 'opacity-75' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-100 ${index === activeImage ? 'opacity-200' : 'opacity-0'}`}
           style={{ backgroundImage: `url("${image}")` }}
           aria-hidden={index !== activeImage}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/90 to-primary-dark/35" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/30 to-primary-dark/35" />
       
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           backgroundSize: '60px 60px',
@@ -91,7 +92,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 xs-hidden left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-8 h-12 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
           <div className="w-1 h-3 bg-white/50 rounded-full animate-pulse" />
         </div>

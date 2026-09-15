@@ -61,7 +61,7 @@ const Applications = ({ initialType }) => {
         </div>
 
         {/* Top Segmented Pill Switcher (Attached Screenshot Design) */}
-        <div className="bg-gray-200/70 dark:bg-gray-800/70 p-1.5 rounded-2xl flex items-center shadow-inner w-full mx-auto mb-6 border border-gray-300/50 dark:border-gray-700/60">
+        <div className="bg-gray-200/70 dark:bg-gray-800/70 p-1.5 rounded-2xl flex flex-col sm:flex-row items-stretch sm:items-center gap-1 shadow-inner w-full mx-auto mb-6 border border-gray-300/50 dark:border-gray-700/60">
           {['site', 'career'].map((option) => {
             const optionCopy = t(`applications.${option}`, { returnObjects: true });
             const isActive = type === option;
@@ -70,7 +70,7 @@ const Applications = ({ initialType }) => {
                 key={option}
                 type="button"
                 onClick={() => selectType(option)}
-                className={`flex-1 py-3 px-4 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 flex items-center justify-center gap-3 ${
+                className={`flex-1 min-w-0 py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 ${
                   isActive
                     ? 'bg-white dark:bg-surface-dark text-primary dark:text-primary-light shadow-md font-bold scale-[1.01]'
                     : 'text-text-light dark:text-text-dark-light hover:text-text dark:hover:text-text-dark hover:bg-white/40 dark:hover:bg-gray-700/40'

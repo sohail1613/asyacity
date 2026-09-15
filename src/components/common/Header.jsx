@@ -20,6 +20,10 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
   const navItems = [
     { path: '/', label: t('header.home') },
     { path: '/about', label: t('header.corporate'), children: [{ path: '/about', label: t('header.about') }, { path: '/why-professional', label: t('header.whyProfessional') }] },
@@ -42,7 +46,7 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
+        scrolled || isMenuOpen
           ? 'bg-white/95 dark:bg-background-dark/95 shadow-soft backdrop-blur-md' 
           : 'bg-transparent'
       }`}
@@ -94,7 +98,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <nav className="lg:hidden py-6 border-t border-border dark:border-dark-border">
+          <nav className="absolute left-0 right-0 top-full max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-border bg-white px-4 py-5 shadow-hard dark:border-dark-border dark:bg-background-dark lg:hidden">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link

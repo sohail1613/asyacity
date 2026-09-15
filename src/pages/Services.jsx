@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import { SERVICE_IMAGES } from '../config/images';
+import { LeftArrowIcon } from '../assets/commonIcons/icon';
 
 const Services = () => {
   const { isEnglish } = useTranslation('home');
@@ -59,14 +60,14 @@ const Services = () => {
               <p className="mt-4 text-sm text-text-light dark:text-text-dark-light">
                 {isEnglish ? 'Talk to our team about your site.' : 'Sitenizin ihtiyacını birlikte değerlendirelim.'}
               </p>
-              <span className="mt-5 inline-flex items-center text-secondary font-semibold text-sm">{isEnglish ? 'View service details' : 'Hizmet detaylarını incele'} <span className="ml-2 transition-transform group-hover:translate-x-1">→</span></span>
+              <span className="mt-5 inline-flex items-center text-secondary font-semibold text-sm">{isEnglish ? 'View service details' : 'Hizmet detaylarını incele'} <span className="ml-2 transition-transform group-hover:translate-x-1 rotate-180"> <LeftArrowIcon size={28} stroke={2} /></span></span>
             </Link>
           ))}
         </div>
-        <div className="mt-14 bg-primary-dark text-white p-8 md:p-12 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6">
+        {/* <div className="mt-14 bg-primary-dark text-white p-8 md:p-12 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div><p className="eyebrow text-secondary mb-3">{isEnglish ? 'FREE INITIAL ASSESSMENT' : 'ÜCRETSİZ ÖN KEŞİF'}</p><h2 className="brand-display text-3xl font-bold">{isEnglish ? 'Let’s build the right plan for your site.' : 'Siteniz için doğru yönetim planını oluşturalım.'}</h2></div>
           <a href="/site-teklif-formu" className="btn-primary whitespace-nowrap">{isEnglish ? 'Get a quote' : 'Teklif alın'}</a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
